@@ -1,0 +1,55 @@
+plugins {
+	id 'java'
+	id 'org.springframework.boot' version '3.3.4'
+	id 'io.spring.dependency-management' version '1.1.6'
+}
+
+group = 'com.example'
+version = '0.0.1-SNAPSHOT'
+
+java {
+	toolchain {
+		languageVersion = JavaLanguageVersion.of(21)
+	}
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencyManagement {
+	imports {
+		mavenBom "org.springframework.cloud:spring-cloud-dependencies:2023.0.1" // or the latest version
+	}
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+
+	implementation 'org.projectlombok:lombok'
+	annotationProcessor 'org.projectlombok:lombok'
+	implementation 'org.springframework.cloud:spring-cloud-starter-consul-discovery'
+	implementation 'org.springframework.cloud:spring-cloud-starter-consul-config'
+	implementation group: 'org.springframework.cloud', name: 'spring-cloud-starter-openfeign', version: '4.1.3'
+	implementation group: 'org.apache.httpcomponents', name: 'httpclient', version: '4.5.13'
+	implementation group: 'io.github.openfeign', name: 'feign-httpclient', version: '13.5'
+	implementation 'org.springframework.boot:spring-boot-starter-actuator'
+
+
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+	// Feign Core
+	implementation 'io.github.openfeign:feign-core:11.10'
+
+	// OkHttp integration for Feign
+	implementation 'io.github.openfeign:feign-okhttp:11.10'
+
+	// OkHttp dependency
+	implementation 'com.squareup.okhttp3:okhttp:5.0.0-alpha.2'
+
+	// Other dependencies you might need
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
