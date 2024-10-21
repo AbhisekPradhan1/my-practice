@@ -4,8 +4,7 @@ import lombok.Data;
 import java.util.List;
 
 @Data
-
-public class OneWaySearchRequestDTO {
+public class OneWaySearchRequest {
 
     @JsonProperty("EndUserIp")
     private String endUserIp;
@@ -35,27 +34,8 @@ public class OneWaySearchRequestDTO {
     private String preferredAirlines;
 
     @JsonProperty("Segments")
-    private List<Segment> segments;
+    private List<RequestSegment> segments;
 
     @JsonProperty("Sources")
     private String sources;
-
-    @Data
-    public static class Segment {
-
-        @JsonProperty("Origin")
-        private String origin;
-
-        @JsonProperty("Destination")
-        private String destination;
-
-        @JsonProperty("FlightCabinClass")
-        private String flightCabinClass;
-
-        @JsonProperty("PreferredDepartureTime")
-        private String preferredDepartureTime;
-
-        @JsonProperty("PreferredArrivalTime")
-        private String preferredArrivalTime;
-    }
 }

@@ -1,8 +1,7 @@
 package com.example.Search.Api.For.One.Way.Service.service;
-import com.example.Search.Api.For.One.Way.module.DTO.OneWaySearchRequestDTO;
-import com.example.Search.Api.For.One.Way.module.DTO.OneWaySearchResponseDTO;
-
+import com.example.Search.Api.For.One.Way.module.DTO.OneWaySearchRequest;
+import com.example.Search.Api.For.One.Way.module.DTO.OneWaySearchResponse;
 
 public interface OneWaySearchService {
-    OneWaySearchResponseDTO searchFlights(OneWaySearchRequestDTO request) ;
+    OneWaySearchResponse searchFlights(OneWaySearchRequest request) ;
 }
