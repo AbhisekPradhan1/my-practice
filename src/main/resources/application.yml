@@ -1,0 +1,15 @@
+feign:
+  client:
+    config:
+      default:
+        connectTimeout: 10000
+        readTimeout: 10000
+        retryer:
+          period: 1000
+          maxPeriod: 2000
+          maxAttempts: 5
+      tboClient:
+        connectTimeout: 10000
+        readTimeout: 10000
+
+
