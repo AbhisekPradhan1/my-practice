@@ -17,7 +17,7 @@ public class Payment {
     private String customerName;
     private String customerEmail;
     private String customerPhone;
-    private Integer amount;
+    private Double amount;
     private String orderStatus;
     private String razorpayOrderId;
 }
