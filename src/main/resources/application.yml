@@ -1,0 +1,32 @@
+spring:
+  application:
+    name: Payment-integration
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/Paymentdb
+
+razorpay:
+  api:
+    key: rzp_test_jN50DKUf6PAw76
+    secret: o4F419GjVgHzhhJ9Oq2eDELw
+
+cloud:
+  consul:
+    config:
+      enabled: true
+    discovery:
+      enabled: true
+      register: true
+      deregister: false
+      health-check-path: /actuator/health
+      health-check-interval: 3s
+      health-check-timeout: 3s
+      health-check-critical-timeout: 5s
+      scheme: http
+      health-check-tls-skip-verify: true
+      prefer-ip-address: true
+      register-health-check: true
+      localhost:
+        port: 8500
+  config:
+    import: "consul:"
