@@ -1,0 +1,50 @@
+spring:
+  application:
+    name: Book-for-Flight
+
+  cloud:
+    consul:
+      config:
+        enabled: true
+      discovery:
+        enabled: true
+        register: true
+        deregister: false
+        health-check-path: /actuator/health
+        health-check-interval: 3s
+        health-check-timeout: 3s
+        health-check-critical-timeout: 5s
+        scheme: http
+        health-check-tls-skip-verify: true
+        prefer-ip-address: true
+        register-health-check: true
+    #      localhost: 3.6.218.76
+    localhost:
+      port: 8500
+  config:
+    import: "consul:"
+
+server:
+  port: 8086
+
+feign:
+  client:
+    config:
+      default:
+        loggerLevel: FULL
+        connectTimeout: 10000
+        readTimeout: 10000
+        retryer:
+          period: 1000
+          maxPeriod: 2000
+          maxAttempts: 5
+      tboClient:
+        connectTimeout: 10000
+        readTimeout: 10000
+
+logging:
+  level:
+    feign: DEBUG
+
+main:
+  allow-bean-definition-overriding: true
